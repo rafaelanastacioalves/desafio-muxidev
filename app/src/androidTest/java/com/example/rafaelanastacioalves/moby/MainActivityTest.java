@@ -35,8 +35,7 @@ public class MainActivityTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class, true, false);
-    private String fileNameTripPackagesOKResponse = "trip_packages_ok_response.json";
-    private String fileNameTripPackagesAditionalOKResponse = "trip_packages_aditional_ok_response.json";
+    private String fileNameFruitListOKResponse = "fruit_list_ok_response.json";
     private MockWebServer server;
 
     @Before
@@ -55,23 +54,17 @@ public class MainActivityTest {
                 .setResponseCode(200)
                 .setBody(RestServiceTestHelper.getStringFromFile(
                         InstrumentationRegistry.getInstrumentation().getContext()
-                        , fileNameTripPackagesOKResponse)
+                        , fileNameFruitListOKResponse)
                 )
         );
 
-        server.enqueue(new MockResponse()
-                .setResponseCode(200)
-                .setBody(RestServiceTestHelper.getStringFromFile(
-                        InstrumentationRegistry.getInstrumentation().getContext()
-                        , fileNameTripPackagesAditionalOKResponse)
-                )
-        );
+
 
         Intent intent = new Intent();
 
         mainActivityActivityTestRule.launchActivity(intent);
 
-        onView(allOf(withId(R.id.fruit_name_text_view), withText("Disney Premium"))).check(matches(isDisplayed()));
+        onView(allOf(withId(R.id.fruit_name_text_view), withText("Apple"))).check(matches(isDisplayed()));
 
     }
 
