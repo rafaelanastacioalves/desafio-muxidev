@@ -8,23 +8,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.rafaelanastacioalves.moby.R;
-import com.example.rafaelanastacioalves.moby.vo.MainEntity;
+import com.example.rafaelanastacioalves.moby.vo.Fruit;
 import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainEntityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FruitViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-    @BindView(R.id.trip_package_container) View tripPackageContainer;
+    @BindView(R.id.fruit_name_container) View tripPackageContainer;
     private RecyclerViewClickListener aRecyclerViewListener;
-    @BindView(R.id.main_entity_imageview) ImageView tripPackageImageView;
-    @BindView(R.id.main_entity_title_textview) TextView tripPackageTitleTextView;
+    @BindView(R.id.fruit_imageview) ImageView fruitImageView;
+    @BindView(R.id.fruit_name_text_view) TextView fruitNameTextView;
+    @BindView(R.id.fruit_price) TextView fruitPrice;
 
 
-    public MainEntityViewHolder(View itemView, RecyclerViewClickListener clickListener) {
+    public FruitViewHolder(View itemView, RecyclerViewClickListener clickListener) {
         super(itemView);
         ButterKnife.bind(this, itemView);
         this.aRecyclerViewListener = clickListener;
@@ -37,15 +38,15 @@ public class MainEntityViewHolder extends RecyclerView.ViewHolder implements Vie
         aRecyclerViewListener.onClick(v, getAdapterPosition());
     }
 
-    public void bind(MainEntity aMainEntity, Context context) {
+    public void bind(Fruit aFruit, Context context) {
 
-        tripPackageTitleTextView.setText(aMainEntity.getTitle());
+        fruitNameTextView.setText(aFruit.getName());
+        fruitPrice.setText(String.valueOf(aFruit.getPrice()));
         final StateListDrawable placeholderList = (StateListDrawable) context.getResources().getDrawable(R.drawable.ic_placeholder_map_selector);
         Picasso.get()
-                .load(aMainEntity.getImage_url())
+                .load(aFruit.getImage())
                 .placeholder(placeholderList)
-                .into(tripPackageImageView);
-
+                .into(fruitImageView);
 
     }
 }

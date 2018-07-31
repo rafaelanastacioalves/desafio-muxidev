@@ -6,15 +6,15 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.rafaelanastacioalves.moby.R;
-import com.example.rafaelanastacioalves.moby.vo.MainEntity;
+import com.example.rafaelanastacioalves.moby.vo.Fruit;
 import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainEntityAdapter extends RecyclerView.Adapter<MainEntityViewHolder> {
+public class MainEntityAdapter extends RecyclerView.Adapter<FruitViewHolder> {
     private RecyclerViewClickListener recyclerViewClickListener;
-    private List<MainEntity> items = new ArrayList<>();
+    private List<Fruit> items = new ArrayList<>();
 
     private Context mContext;
 
@@ -27,11 +27,11 @@ public class MainEntityAdapter extends RecyclerView.Adapter<MainEntityViewHolder
         this.recyclerViewClickListener = aRVC;
     }
 
-    public List<MainEntity> getItems() {
+    public List<Fruit> getItems() {
         return this.items;
     }
 
-    public void setItems(List<MainEntity> items) {
+    public void setItems(List<Fruit> items) {
         this.items = items;
         notifyDataSetChanged();
 
@@ -39,17 +39,17 @@ public class MainEntityAdapter extends RecyclerView.Adapter<MainEntityViewHolder
     }
 
     @Override
-    public MainEntityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MainEntityViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.main_entity_viewholder, parent, false), recyclerViewClickListener);
+    public FruitViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new FruitViewHolder(LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.fruit_viewholder, parent, false), recyclerViewClickListener);
     }
 
 
 
     @Override
-    public void onBindViewHolder(MainEntityViewHolder holder, int position) {
-        MainEntity aRepoW = getItems().get(position);
-        ((MainEntityViewHolder) holder).bind(aRepoW, mContext);
+    public void onBindViewHolder(FruitViewHolder holder, int position) {
+        Fruit aRepoW = getItems().get(position);
+        ((FruitViewHolder) holder).bind(aRepoW, mContext);
     }
 
     @Override

@@ -31,7 +31,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 
 
 @RunWith(AndroidJUnit4.class)
-public class MainEntityDetailActivityTest {
+public class FruitDetailActivityTest {
     @Rule
     public ActivityTestRule<EntityDetailActivity> tripPackageDetailActivityTestRule = new ActivityTestRule<EntityDetailActivity>(EntityDetailActivity.class, true, false);
     private String fileNameTripPackageDetailOKResponse = "package_detail_ok_response.json";

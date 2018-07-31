@@ -26,7 +26,6 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static com.example.rafaelanastacioalves.moby.util.HelperMethods.withHolderContainingId;
 import static org.hamcrest.core.AllOf.allOf;
 
 
@@ -72,7 +71,7 @@ public class MainActivityTest {
 
         mainActivityActivityTestRule.launchActivity(intent);
 
-        onView(allOf(withId(R.id.main_entity_title_textview), withText("Disney Premium"))).check(matches(isDisplayed()));
+        onView(allOf(withId(R.id.fruit_name_text_view), withText("Disney Premium"))).check(matches(isDisplayed()));
 
     }
 

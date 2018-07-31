@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rafaelanastacioalves.moby.R;
-import com.example.rafaelanastacioalves.moby.vo.EntityDetails;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -29,7 +28,6 @@ import butterknife.ButterKnife;
 public class EntityDetailsFragment extends Fragment implements View.OnClickListener {
 
     public static String ARG_PACKAGE_ID;
-    private String PACKAGE_ID_LOADER_KEY = "package_id_loader_key";
 
     private LiveDataEntityDetailsViewModel mLiveDataEntityDetailsViewModel;
 
@@ -56,17 +54,17 @@ public class EntityDetailsFragment extends Fragment implements View.OnClickListe
 
     private void loadData() {
         String mPackageId = getArguments().getString(ARG_PACKAGE_ID);
-        mLiveDataEntityDetailsViewModel.loadData(mPackageId);
+//        mLiveDataEntityDetailsViewModel.loadData(mPackageId);
     }
 
     private void subscribe() {
-        mLiveDataEntityDetailsViewModel = ViewModelProviders.of(this).get(LiveDataEntityDetailsViewModel.class);
-        mLiveDataEntityDetailsViewModel.getEntityDetails().observe(this, new Observer<EntityDetails>() {
-            @Override
-            public void onChanged(@Nullable EntityDetails entityDetails) {
-                setViewsWith(entityDetails);
-            }
-        });
+//        mLiveDataEntityDetailsViewModel = ViewModelProviders.of(this).get(LiveDataEntityDetailsViewModel.class);
+//        mLiveDataEntityDetailsViewModel.getEntityDetails().observe(this, new Observer<EntityDetails>() {
+//            @Override
+//            public void onChanged(@Nullable EntityDetails entityDetails) {
+//                setViewsWith(entityDetails);
+//            }
+//        });
 
     }
 
@@ -97,26 +95,26 @@ public class EntityDetailsFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    private void setViewsWith(EntityDetails entityDetails) {
-
-        tripPackageDetailValor.setText(entityDetails.getPrice());
-        setupActionBarWithTitle(entityDetails.getTitle());
-        Picasso.get()
-                .load(entityDetails.getImage_url())
-                .into(tripPackageDetailImageview, new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        getActivity().supportStartPostponedEnterTransition();
-                    }
-
-                    @Override
-                    public void onError(Exception e) {
-
-                    }
-                });
-
-
-    }
+//    private void setViewsWith(EntityDetails entityDetails) {
+//
+//        tripPackageDetailValor.setText(entityDetails.getPrice());
+//        setupActionBarWithTitle(entityDetails.getTitle());
+//        Picasso.get()
+//                .load(entityDetails.getImage_url())
+//                .into(tripPackageDetailImageview, new Callback() {
+//                    @Override
+//                    public void onSuccess() {
+//                        getActivity().supportStartPostponedEnterTransition();
+//                    }
+//
+//                    @Override
+//                    public void onError(Exception e) {
+//
+//                    }
+//                });
+//
+//
+//    }
 
 
 

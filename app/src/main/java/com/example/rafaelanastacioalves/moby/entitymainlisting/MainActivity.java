@@ -16,7 +16,7 @@ import android.view.View;
 import com.example.rafaelanastacioalves.moby.entitydetailing.EntityDetailsFragment;
 import com.example.rafaelanastacioalves.moby.entitydetailing.EntityDetailActivity;
 import com.example.rafaelanastacioalves.moby.R;
-import com.example.rafaelanastacioalves.moby.vo.MainEntity;
+import com.example.rafaelanastacioalves.moby.vo.Fruit;
 import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener;
 
 import java.util.List;
@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
 
     private void subscribe() {
         mLiveDataMainEntityListViewModel = ViewModelProviders.of(this).get(LiveDataMainEntityListViewModel.class);
-        mLiveDataMainEntityListViewModel.getMainEntityList().observe(this, new Observer<List<MainEntity>>() {
+        mLiveDataMainEntityListViewModel.getMainEntityList().observe(this, new Observer<List<Fruit>>() {
             @Override
-            public void onChanged(@Nullable List<MainEntity> mainEntities) {
+            public void onChanged(@Nullable List<Fruit> mainEntities) {
                 Timber.d("On Changed");
                 populateRecyclerView(mainEntities);
             }
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
     }
 
 
-    private void populateRecyclerView(List<MainEntity> data) {
+    private void populateRecyclerView(List<Fruit> data) {
         if (data == null) {
             mTripPackageListAdapter.setItems(null);
             //TODO add any error managing
@@ -88,17 +88,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
 
     @Override
     public void onClick(View view, int position) {
-        MainEntity MainEntity = (MainEntity) mTripPackageListAdapter.getItems().get(position);
+        Fruit Fruit = (Fruit) mTripPackageListAdapter.getItems().get(position);
 
-        AppCompatImageView transitionImageView = view.findViewById(R.id.main_entity_imageview);
-        startActivityByVersion(MainEntity, transitionImageView);
+        AppCompatImageView transitionImageView = view.findViewById(R.id.fruit_imageview);
+        startActivityByVersion(Fruit, transitionImageView);
 
 
     }
 
-    private void startActivityByVersion(MainEntity mainEntity, AppCompatImageView transitionImageView) {
+    private void startActivityByVersion(Fruit fruit, AppCompatImageView transitionImageView) {
         Intent i = new Intent(this, EntityDetailActivity.class);
-        i.putExtra(EntityDetailsFragment.ARG_PACKAGE_ID, mainEntity.getId());
+        i.putExtra(EntityDetailsFragment.ARG_PACKAGE_ID, fruit.getPrice());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Bundle bundle = null;
