@@ -6,7 +6,9 @@ import io.reactivex.Observable;
 import io.reactivex.Single;
 
 public class AppRepository {
-
+    static {
+        System.loadLibrary("hello-jni");
+    }
     public static Observable<Fruits> getFruits(){
         APIClient APIClient = ServiceGenerator.createService(APIClient.class);
         Observable<Fruits> finalResult = APIClient.getFruitList();
@@ -21,7 +23,7 @@ public class AppRepository {
         });
     }
 
-    private static float convertValue(float originalValue){
-        return (float) 1.0;
-    }
+
+    public native static float convertValue(float originalValue);
+
 }

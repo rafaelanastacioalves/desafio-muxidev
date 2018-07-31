@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rafaelanastacioalves.moby.R;
+import com.example.rafaelanastacioalves.moby.vo.Fruit;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -27,16 +28,19 @@ import butterknife.ButterKnife;
  */
 public class EntityDetailsFragment extends Fragment implements View.OnClickListener {
 
-    public static String ARG_PACKAGE_ID;
+    public static String ARG_ORIGINAL_VALUE;
 
     private LiveDataEntityDetailsViewModel mLiveDataEntityDetailsViewModel;
 
-    @BindView(R.id.detail_entity_detail_name)
-    TextView tripPackageDetailValor;
+    @BindView(R.id.fruit_original_price_text_view)
+    TextView fruitOriginalPriceTextView;
+    @BindView(R.id.fruit_converted_price_text_view)
+    TextView fruitConvertedPriceTextView;
+    @BindView(R.id.fruit_name_text_view)
+    TextView fruitNameTextView;
 
     @BindView(R.id.trip_package_detail_imageview)
     ImageView tripPackageDetailImageview;
-
 
 
     public EntityDetailsFragment() {
@@ -53,18 +57,18 @@ public class EntityDetailsFragment extends Fragment implements View.OnClickListe
     }
 
     private void loadData() {
-        String mPackageId = getArguments().getString(ARG_PACKAGE_ID);
-//        mLiveDataEntityDetailsViewModel.loadData(mPackageId);
+        float mOriginalValue = getArguments().getFloat(ARG_ORIGINAL_VALUE);
+        mLiveDataEntityDetailsViewModel.loadData(mOriginalValue);
     }
 
     private void subscribe() {
-//        mLiveDataEntityDetailsViewModel = ViewModelProviders.of(this).get(LiveDataEntityDetailsViewModel.class);
-//        mLiveDataEntityDetailsViewModel.getEntityDetails().observe(this, new Observer<EntityDetails>() {
-//            @Override
-//            public void onChanged(@Nullable EntityDetails entityDetails) {
-//                setViewsWith(entityDetails);
-//            }
-//        });
+        mLiveDataEntityDetailsViewModel = ViewModelProviders.of(this).get(LiveDataEntityDetailsViewModel.class);
+        mLiveDataEntityDetailsViewModel.getEntityDetails().observe(this, new Observer<Float>() {
+            @Override
+            public void onChanged(@Nullable Float entityDetails) {
+                setViewsWith(entityDetails);
+            }
+        });
 
     }
 
@@ -83,7 +87,6 @@ public class EntityDetailsFragment extends Fragment implements View.OnClickListe
     }
 
 
-
     private void setupActionBarWithTitle(String title) {
         AppCompatActivity mActivity = (AppCompatActivity) getActivity();
         ActionBar actionBar = mActivity.getSupportActionBar();
@@ -95,10 +98,15 @@ public class EntityDetailsFragment extends Fragment implements View.OnClickListe
         }
     }
 
-//    private void setViewsWith(EntityDetails entityDetails) {
-//
-//        tripPackageDetailValor.setText(entityDetails.getPrice());
-//        setupActionBarWithTitle(entityDetails.getTitle());
+    private void setViewsWith(Float entityDetails) {
+
+        fruitOriginalPriceTextView.setText("---");
+        fruitNameTextView.setText("Banana");
+        fruitConvertedPriceTextView.setText(String.valueOf(entityDetails));
+
+        setupActionBarWithTitle("---");
+        getActivity().supportStartPostponedEnterTransition();
+
 //        Picasso.get()
 //                .load(entityDetails.getImage_url())
 //                .into(tripPackageDetailImageview, new Callback() {
@@ -113,9 +121,8 @@ public class EntityDetailsFragment extends Fragment implements View.OnClickListe
 //                    }
 //                });
 //
-//
-//    }
 
+    }
 
 
     @Override
