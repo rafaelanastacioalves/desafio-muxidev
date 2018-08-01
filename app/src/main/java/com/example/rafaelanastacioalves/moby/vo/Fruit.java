@@ -1,7 +1,9 @@
 package com.example.rafaelanastacioalves.moby.vo;
 
 
-public class Fruit {
+import java.io.Serializable;
+
+public class Fruit implements Serializable {
 
     private float price;
     private String name;

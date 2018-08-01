@@ -5,15 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.example.rafaelanastacioalves.moby.R;
+import com.example.rafaelanastacioalves.moby.vo.Fruit;
 
 import timber.log.Timber;
+
+import static com.example.rafaelanastacioalves.moby.entitydetailing.EntityDetailsFragment.ARG_FRUIT_OBJECT;
 
 
 public class EntityDetailActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fruit fruit = (Fruit) getIntent().getSerializableExtra(ARG_FRUIT_OBJECT);
         setContentView(R.layout.activity_package_detail);
         setupActionBar();
 
@@ -21,10 +26,9 @@ public class EntityDetailActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
-            Timber.i("PullRequestsFragment ARG PACKAGE: " + getIntent().getStringExtra(EntityDetailsFragment.ARG_ORIGINAL_VALUE));
             Bundle arguments = new Bundle();
-            arguments.putString(EntityDetailsFragment.ARG_ORIGINAL_VALUE,
-                    getIntent().getStringExtra(EntityDetailsFragment.ARG_ORIGINAL_VALUE));
+
+            arguments.putSerializable(ARG_FRUIT_OBJECT, fruit);
             EntityDetailsFragment fragment = new EntityDetailsFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()

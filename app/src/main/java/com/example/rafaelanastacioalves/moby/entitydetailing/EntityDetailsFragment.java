@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
  */
 public class EntityDetailsFragment extends Fragment implements View.OnClickListener {
 
-    public static String ARG_ORIGINAL_VALUE;
+    public static final String ARG_FRUIT_OBJECT = "fruit_object";
 
     private LiveDataEntityDetailsViewModel mLiveDataEntityDetailsViewModel;
 
@@ -51,14 +51,13 @@ public class EntityDetailsFragment extends Fragment implements View.OnClickListe
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Fruit fruit = (Fruit) getArguments().getSerializable(ARG_FRUIT_OBJECT);
         subscribe();
-        loadData();
+        loadData(fruit);
     }
 
-    private void loadData() {
-        float mOriginalValue = getArguments().getFloat(ARG_ORIGINAL_VALUE);
-        mLiveDataEntityDetailsViewModel.loadData(mOriginalValue);
+    private void loadData(Fruit fruit) {
+        mLiveDataEntityDetailsViewModel.loadData(fruit.getPrice());
     }
 
     private void subscribe() {
