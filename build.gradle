@@ -45,6 +45,7 @@ ext {
     archLifecycleVersion = "1.1.1"
     rxAndroidVersion = "2.0.1"
     rxJavaVersion = "2.x.x"
+    hawkVersion = "2.0.+"
 
 
 }
