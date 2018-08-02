@@ -6,35 +6,30 @@ import android.arch.lifecycle.ViewModel;
 import com.example.rafaelanastacioalves.moby.repository.AppRepository;
 import com.example.rafaelanastacioalves.moby.vo.Fruit;
 
-import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import timber.log.Timber;
 
 public class LiveDataEntityDetailsViewModel extends ViewModel {
 
-    private MutableLiveData<Float> mEntityDetails = new MutableLiveData<>();
+    private MutableLiveData<Fruit> mFruit = new MutableLiveData<>();
 
-    public MutableLiveData<Float> getEntityDetails() {
-        return mEntityDetails;
+    public MutableLiveData<Fruit> getFruit() {
+        return mFruit;
     }
 
-    public void loadData(float originalValue) {
+    public void loadData(Fruit fruit) {
         Timber.i("LiveDataEntityDetailsViewModel loadData");
 
-        if(mEntityDetails.getValue() != null){
+        if(mFruit.getValue() != null){
             return;
         }
 
 
-//
-
-        Single<Float> result = AppRepository.getConvertedPrice(1.5f);
+        Single<Fruit> result = AppRepository.getConvertedFruitObject(fruit);
         result.observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> mEntityDetails.setValue(response),
+                .subscribe(response -> mFruit.setValue(response),
                         throwable -> throwable.printStackTrace());
-
-
 
     }
 }

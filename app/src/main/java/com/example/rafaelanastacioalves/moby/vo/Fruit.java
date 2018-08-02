@@ -8,8 +8,7 @@ public class Fruit implements Serializable {
     private float price;
     private String name;
     private String image;
-
-    private String convertedPrice;
+    private float convertedPrice;
 
     public Fruit(){
         super();
@@ -27,11 +26,11 @@ public class Fruit implements Serializable {
         return image;
     }
 
-    public String getConvertedPrice() {
+    public float getConvertedPrice() {
         return convertedPrice;
     }
 
-    public void setConvertedPrice(String convertedPrice) {
+    public void setConvertedPrice(float convertedPrice) {
         this.convertedPrice = convertedPrice;
     }
 }

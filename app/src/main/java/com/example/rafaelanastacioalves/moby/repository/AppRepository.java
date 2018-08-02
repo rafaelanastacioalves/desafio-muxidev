@@ -1,5 +1,6 @@
 package com.example.rafaelanastacioalves.moby.repository;
 
+import com.example.rafaelanastacioalves.moby.vo.Fruit;
 import com.example.rafaelanastacioalves.moby.vo.Fruits;
 
 import io.reactivex.Observable;
@@ -16,10 +17,11 @@ public class AppRepository {
     return finalResult;
     }
 
-    public static Single<Float> getConvertedPrice(float originalPRice) {
+    public static Single<Fruit> getConvertedFruitObject(Fruit fruit) {
         return Single.create(emitter -> {
-                float newValue = convertValue(originalPRice);
-                emitter.onSuccess(new Float(newValue));
+                float newValue = convertValue(fruit.getPrice());
+                fruit.setConvertedPrice(newValue);
+                emitter.onSuccess(fruit);
         });
     }
 

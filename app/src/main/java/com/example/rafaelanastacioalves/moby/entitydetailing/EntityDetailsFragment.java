@@ -57,14 +57,14 @@ public class EntityDetailsFragment extends Fragment implements View.OnClickListe
     }
 
     private void loadData(Fruit fruit) {
-        mLiveDataEntityDetailsViewModel.loadData(fruit.getPrice());
+        mLiveDataEntityDetailsViewModel.loadData(fruit);
     }
 
     private void subscribe() {
         mLiveDataEntityDetailsViewModel = ViewModelProviders.of(this).get(LiveDataEntityDetailsViewModel.class);
-        mLiveDataEntityDetailsViewModel.getEntityDetails().observe(this, new Observer<Float>() {
+        mLiveDataEntityDetailsViewModel.getFruit().observe(this, new Observer<Fruit>() {
             @Override
-            public void onChanged(@Nullable Float entityDetails) {
+            public void onChanged(@Nullable Fruit entityDetails) {
                 setViewsWith(entityDetails);
             }
         });
@@ -97,29 +97,29 @@ public class EntityDetailsFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    private void setViewsWith(Float entityDetails) {
+    private void setViewsWith(Fruit fruit) {
 
-        fruitOriginalPriceTextView.setText("---");
-        fruitNameTextView.setText("Banana");
-        fruitConvertedPriceTextView.setText(String.valueOf(entityDetails));
+        fruitOriginalPriceTextView.setText(String.valueOf(fruit.getPrice()));
+        fruitNameTextView.setText(fruit.getName());
+        fruitConvertedPriceTextView.setText(String.valueOf(fruit.getConvertedPrice()));
 
-        setupActionBarWithTitle("---");
-        getActivity().supportStartPostponedEnterTransition();
+        setupActionBarWithTitle(fruit.getName());
 
-//        Picasso.get()
-//                .load(entityDetails.getImage_url())
-//                .into(tripPackageDetailImageview, new Callback() {
-//                    @Override
-//                    public void onSuccess() {
-//                        getActivity().supportStartPostponedEnterTransition();
-//                    }
-//
-//                    @Override
-//                    public void onError(Exception e) {
-//
-//                    }
-//                });
-//
+        Picasso.get()
+                .load(fruit.getImage())
+                .into(tripPackageDetailImageview, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        getActivity().supportStartPostponedEnterTransition();
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        getActivity().supportStartPostponedEnterTransition();
+
+                    }
+                });
+
 
     }
 
