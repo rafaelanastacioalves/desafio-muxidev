@@ -18,6 +18,8 @@ Ambas utilizam o conceito de "reativo". Porém AAC faz uso da vantagem de livrar
 Para a lógica de chamadas do repositório ao componente HTTP e ao componente de código nativo, utilizei RxJava + RxAndroid.
 
 Para a implementação do componente de código nativo em C, utilizei o exemplo descrito em: https://github.com/googlesamples/android-ndk/tree/master/hello-jni
+Apesar de ser possível utilizar assincronicidade da arquitetura em C, com callbacks, como demonstrado em outros samples, optei por usar o paradigma do Rx em RxJava, que é mais robusto e documentado na comunidade de desenvolvimento.
+
 
 ### Principais bibliotecas JAVA:
 - `android.arch.lifecycle`: Usei componentes como Mutable Live Data e ViewModel que ajudam a representar o Model e a unir esta à view, mantendo o estado dos componentes ao longo do ciclo de vida da activity ou fragment. Também utilizamos o recurso de ouvir à mudanças no Model de modo que podemos refletir as mudanças na View correspondente. Link: https://developer.android.com/topic/libraries/architecture/ 
@@ -30,7 +32,7 @@ Para a implementação do componente de código nativo em C, utilizei o exemplo 
 
 ## Itens não implementados
 
-
+- 
 
 ## Testes
 
