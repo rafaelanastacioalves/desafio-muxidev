@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
 import com.example.rafaelanastacioalves.moby.BuildConfig;
+import com.orhanobut.hawk.Hawk;
 import com.squareup.picasso.Picasso;
 
 import timber.log.Timber;
@@ -15,7 +16,13 @@ public class MainApplication extends Application {
     public void onCreate() {
         setupLog();
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+        setupHawk(this);
         super.onCreate();
+    }
+
+    private void setupHawk(MainApplication context) {
+        Hawk.init(context).build();
+
     }
 
     private void setupLog() {

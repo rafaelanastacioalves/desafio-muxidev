@@ -9,7 +9,7 @@ import com.example.rafaelanastacioalves.moby.vo.Fruits;
 
 import java.util.List;
 
-import io.reactivex.Observable;
+import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
@@ -31,7 +31,7 @@ public class LiveDataMainEntityListViewModel extends ViewModel {
         }
 
 
-        Observable<Fruits> finalResult = AppRepository.getFruits();
+        Single<Fruits> finalResult = AppRepository.getFruits();
 
         finalResult.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
