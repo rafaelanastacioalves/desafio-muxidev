@@ -20,6 +20,10 @@ Para a lógica de chamadas do repositório ao componente HTTP e ao componente de
 Para a implementação do componente de código nativo em C, utilizei o exemplo descrito em: https://github.com/googlesamples/android-ndk/tree/master/hello-jni
 Apesar de ser possível utilizar assincronicidade da arquitetura em C, com callbacks, como demonstrado em outros samples, optei por usar o paradigma do Rx em RxJava, que é mais robusto e documentado na comunidade de desenvolvimento.
 
+Para cacheamento da API, utilizei o Hawk, abstraído por um DAO simples.
+
+Para cacheamento de imagem, utilizei o default do Picasso.
+
 
 ### Principais bibliotecas JAVA:
 - `android.arch.lifecycle`: Usei componentes como Mutable Live Data e ViewModel que ajudam a representar o Model e a unir esta à view, mantendo o estado dos componentes ao longo do ciclo de vida da activity ou fragment. Também utilizamos o recurso de ouvir à mudanças no Model de modo que podemos refletir as mudanças na View correspondente. Link: https://developer.android.com/topic/libraries/architecture/ 
@@ -28,11 +32,14 @@ Apesar de ser possível utilizar assincronicidade da arquitetura em C, com callb
 
 - `o.reactivex.rxjava2`: Bilioteca que permite realizar uma programação assíncrona em Java. Link: https://github.com/ReactiveX/RxJava  
 
-
+- `com.orhanobut:hawk`:  Biblioteca para cacheamento de API.
 
 ## Itens não implementados
 
-- 
+- Testes unitários;
+- Testes funcionais (embora eu tenha experiência comprovada na área com Calabash e Appium).
+- Build do apk utilizando o Android.mk (Android)
+- Material Design (não foquei nos espaçamentos estabelecidos para margens, padding, etc)
 
 ## Testes
 
