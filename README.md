@@ -18,7 +18,7 @@ Ambas utilizam o conceito de "reativo". Porém AAC faz uso da vantagem de livrar
 Para a lógica de chamadas do repositório ao componente HTTP e ao componente de código nativo (C/C++), utilizei RxJava + RxAndroid.
 
 Para a implementação do componente de código nativo em C, utilizei o exemplo descrito em: https://github.com/googlesamples/android-ndk/tree/master/hello-jni
-Apesar de ser possível utilizar assincronicidade da arquitetura em C, com callbacks, como demonstrado em outros samples, optei por usar o paradigma do Rx em RxJava, que é mais robusto e documentado na comunidade de desenvolvimento.
+.Apesar de ser possível utilizar assincronicidade da arquitetura em C, com callbacks, como demonstrado em outros samples, optei por usar o paradigma do Rx em RxJava, que é mais robusto e documentado na comunidade de desenvolvimento Android.
 
 Para cacheamento da API, utilizei o Hawk, abstraído por um DAO simples.
 
@@ -41,7 +41,7 @@ Para cacheamento de imagem, utilizei o default do Picasso.
 - Build do apk utilizando o Android.mk (Android)
 - Material Design (não foquei nos espaçamentos estabelecidos para margens, padding, etc)
 
-## Testes
+## Testes (de tela)
 
 Os testes utilizam o buildtype ```instrumentation``` para rodar, pois forçamos que o app seja buildado para apontar para localhost durante os testes.
 Adicionamos duas classes de testes com um método simples para cada.
