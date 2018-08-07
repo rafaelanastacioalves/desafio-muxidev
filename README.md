@@ -15,7 +15,7 @@ Na solução para este app, propus a utilização de RxJava, em conjunto com a p
 
 Ambas utilizam o conceito de "reativo". Porém AAC faz uso da vantagem de livrar o desenvolvedor das preocupações do ciclo de vida da aplicação em Android. Conseqüentemente, para lógica entre View e Model, utilizei AAC.
 
-Para a lógica de chamadas do repositório ao componente HTTP e ao componente de código nativo, utilizei RxJava + RxAndroid.
+Para a lógica de chamadas do repositório ao componente HTTP e ao componente de código nativo (C/C++), utilizei RxJava + RxAndroid.
 
 Para a implementação do componente de código nativo em C, utilizei o exemplo descrito em: https://github.com/googlesamples/android-ndk/tree/master/hello-jni
 Apesar de ser possível utilizar assincronicidade da arquitetura em C, com callbacks, como demonstrado em outros samples, optei por usar o paradigma do Rx em RxJava, que é mais robusto e documentado na comunidade de desenvolvimento.
