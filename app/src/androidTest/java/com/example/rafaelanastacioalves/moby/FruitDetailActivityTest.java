@@ -6,8 +6,8 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.example.rafaelanastacioalves.moby.entitydetailing.EntityDetailsFragment;
-import com.example.rafaelanastacioalves.moby.entitydetailing.EntityDetailActivity;
+import com.example.rafaelanastacioalves.moby.fruitdetailing.FruitDetailFragment;
+import com.example.rafaelanastacioalves.moby.fruitdetailing.FruitDetailActivity;
 import com.example.rafaelanastacioalves.moby.util.RestServiceTestHelper;
 import com.example.rafaelanastacioalves.moby.vo.Fruit;
 
@@ -33,10 +33,9 @@ import static org.hamcrest.CoreMatchers.allOf;
 @RunWith(AndroidJUnit4.class)
 public class FruitDetailActivityTest {
     @Rule
-    public ActivityTestRule<EntityDetailActivity> tripPackageDetailActivityTestRule = new ActivityTestRule<EntityDetailActivity>(EntityDetailActivity.class, true, false);
+    public ActivityTestRule<FruitDetailActivity> tripPackageDetailActivityTestRule = new ActivityTestRule<FruitDetailActivity>(FruitDetailActivity.class, true, false);
     private String fruitListOkResponse = "fruit_list_ok_response.json";
     private MockWebServer server;
-    private String MOCK_PACKAGE_ID = "01";
 
 
     @Before
@@ -62,7 +61,7 @@ public class FruitDetailActivityTest {
         fruit.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/265px-Red_Apple.jpg");
         fruit.setName("Apple");
         fruit.setPrice(35);
-        intent.putExtra(EntityDetailsFragment.ARG_FRUIT_OBJECT, fruit);
+        intent.putExtra(FruitDetailFragment.ARG_FRUIT_OBJECT, fruit);
 
         tripPackageDetailActivityTestRule.launchActivity(intent);
         onView(allOf(withId(R.id.fruit_name_text_view), withText("Apple"))).check(matches(isDisplayed()));

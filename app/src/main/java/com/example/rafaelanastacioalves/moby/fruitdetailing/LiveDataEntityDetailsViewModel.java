@@ -1,4 +1,4 @@
-package com.example.rafaelanastacioalves.moby.entitydetailing;
+package com.example.rafaelanastacioalves.moby.fruitdetailing;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
@@ -21,7 +21,7 @@ public class LiveDataEntityDetailsViewModel extends ViewModel {
     public void loadData(Fruit fruit) {
         Timber.i("LiveDataEntityDetailsViewModel loadData");
 
-        if(mFruit.getValue() != null){
+        if (mFruit.getValue() != null) {
             return;
         }
 

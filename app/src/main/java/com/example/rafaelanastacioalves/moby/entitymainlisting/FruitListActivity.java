@@ -13,22 +13,22 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.example.rafaelanastacioalves.moby.entitydetailing.EntityDetailsFragment;
-import com.example.rafaelanastacioalves.moby.entitydetailing.EntityDetailActivity;
 import com.example.rafaelanastacioalves.moby.R;
-import com.example.rafaelanastacioalves.moby.vo.Fruit;
+import com.example.rafaelanastacioalves.moby.fruitdetailing.FruitDetailActivity;
+import com.example.rafaelanastacioalves.moby.fruitdetailing.FruitDetailFragment;
 import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener;
+import com.example.rafaelanastacioalves.moby.vo.Fruit;
 
 import java.util.List;
 
 import timber.log.Timber;
 
-public class MainActivity extends AppCompatActivity implements RecyclerViewClickListener {
+public class FruitListActivity extends AppCompatActivity implements RecyclerViewClickListener {
     private final RecyclerViewClickListener mClickListener = this;
-    private MainEntityAdapter mTripPackageListAdapter;
+    private FruitAdapter mTripPackageListAdapter;
     private int tripPackageListLoaderId = 10;
     private RecyclerView mRecyclerView;
-    private LiveDataMainEntityListViewModel mLiveDataMainEntityListViewModel;
+    private LiveDataFruitListViewModel mLiveDataFruitListViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +41,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
     }
 
     private void loadData() {
-        mLiveDataMainEntityListViewModel.loadData();
+        mLiveDataFruitListViewModel.loadData();
     }
 
     private void subscribe() {
-        mLiveDataMainEntityListViewModel = ViewModelProviders.of(this).get(LiveDataMainEntityListViewModel.class);
-        mLiveDataMainEntityListViewModel.getMainEntityList().observe(this, new Observer<List<Fruit>>() {
+        mLiveDataFruitListViewModel = ViewModelProviders.of(this).get(LiveDataFruitListViewModel.class);
+        mLiveDataFruitListViewModel.getMainEntityList().observe(this, new Observer<List<Fruit>>() {
             @Override
             public void onChanged(@Nullable List<Fruit> mainEntities) {
                 Timber.d("On Changed");
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         mRecyclerView.setLayoutManager(layoutManager);
         if (mTripPackageListAdapter == null) {
-            mTripPackageListAdapter = new MainEntityAdapter(this);
+            mTripPackageListAdapter = new FruitAdapter(this);
         }
         mTripPackageListAdapter.setRecyclerViewClickListener(mClickListener);
         mRecyclerView.setAdapter(mTripPackageListAdapter);
@@ -97,12 +97,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
     }
 
     private void startActivityByVersion(Fruit fruit, AppCompatImageView transitionImageView) {
-        Intent i = new Intent(this, EntityDetailActivity.class);
-        i.putExtra(EntityDetailsFragment.ARG_FRUIT_OBJECT, fruit);
+        Intent i = new Intent(this, FruitDetailActivity.class);
+        i.putExtra(FruitDetailFragment.ARG_FRUIT_OBJECT, fruit);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Bundle bundle = null;
-            bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,
+            bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(FruitListActivity.this,
                     transitionImageView, transitionImageView.getTransitionName()).toBundle();
             startActivity(i, bundle);
 

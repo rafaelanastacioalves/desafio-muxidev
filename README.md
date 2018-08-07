@@ -44,3 +44,9 @@ Para cacheamento de imagem, utilizei o default do Picasso.
 ## Testes
 
 Os testes utilizam o buildtype ```instrumentation``` para rodar, pois forçamos que o app seja buildado para apontar para localhost durante os testes.
+Adicionamos duas classes de testes com um método simples para cada.
+
+Para iniciar os testes:
+-  Conecte um device ou abra um emulador;
+-  No terminal, no diretório do projeto, execute: `chmod 777 ./gradlew`
+-  Execute o comando no terminarl: `./gradlew connectedAndroidTest`

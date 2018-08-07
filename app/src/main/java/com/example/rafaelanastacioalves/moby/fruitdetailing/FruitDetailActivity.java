@@ -1,4 +1,4 @@
-package com.example.rafaelanastacioalves.moby.entitydetailing;
+package com.example.rafaelanastacioalves.moby.fruitdetailing;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,12 +7,10 @@ import android.support.v7.widget.Toolbar;
 import com.example.rafaelanastacioalves.moby.R;
 import com.example.rafaelanastacioalves.moby.vo.Fruit;
 
-import timber.log.Timber;
-
-import static com.example.rafaelanastacioalves.moby.entitydetailing.EntityDetailsFragment.ARG_FRUIT_OBJECT;
+import static com.example.rafaelanastacioalves.moby.fruitdetailing.FruitDetailFragment.ARG_FRUIT_OBJECT;
 
 
-public class EntityDetailActivity extends AppCompatActivity {
+public class FruitDetailActivity extends AppCompatActivity {
 
 
     @Override
@@ -29,7 +27,7 @@ public class EntityDetailActivity extends AppCompatActivity {
             Bundle arguments = new Bundle();
 
             arguments.putSerializable(ARG_FRUIT_OBJECT, fruit);
-            EntityDetailsFragment fragment = new EntityDetailsFragment();
+            FruitDetailFragment fragment = new FruitDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.package_detail_fragment_container, fragment)

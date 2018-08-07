@@ -6,19 +6,19 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.rafaelanastacioalves.moby.R;
-import com.example.rafaelanastacioalves.moby.vo.Fruit;
 import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener;
+import com.example.rafaelanastacioalves.moby.vo.Fruit;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainEntityAdapter extends RecyclerView.Adapter<FruitViewHolder> {
+public class FruitAdapter extends RecyclerView.Adapter<FruitViewHolder> {
     private RecyclerViewClickListener recyclerViewClickListener;
     private List<Fruit> items = new ArrayList<>();
 
     private Context mContext;
 
-    public MainEntityAdapter(Context context) {
+    public FruitAdapter(Context context) {
         mContext = context;
     }
 
@@ -45,7 +45,6 @@ public class MainEntityAdapter extends RecyclerView.Adapter<FruitViewHolder> {
     }
 
 
-
     @Override
     public void onBindViewHolder(FruitViewHolder holder, int position) {
         Fruit aRepoW = getItems().get(position);
@@ -54,9 +53,9 @@ public class MainEntityAdapter extends RecyclerView.Adapter<FruitViewHolder> {
 
     @Override
     public int getItemCount() {
-        if (getItems() != null){
+        if (getItems() != null) {
             return getItems().size();
-        }else{
+        } else {
             return 0;
         }
     }

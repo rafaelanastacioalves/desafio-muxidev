@@ -7,7 +7,7 @@ public class DAO {
 
     private static String FRUITS = "fruits_persistance_key";
 
-    public static Fruits getFruitsFromDB(){
+    public static Fruits getFruitsFromDB() {
         return Hawk.get(FRUITS);
     }
 

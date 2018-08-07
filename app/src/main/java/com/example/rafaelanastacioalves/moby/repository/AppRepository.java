@@ -1,13 +1,8 @@
 package com.example.rafaelanastacioalves.moby.repository;
 
-import android.telecom.Call;
-
 import com.example.rafaelanastacioalves.moby.db.DAO;
 import com.example.rafaelanastacioalves.moby.vo.Fruit;
 import com.example.rafaelanastacioalves.moby.vo.Fruits;
-
-
-import java.util.List;
 
 import io.reactivex.Single;
 import retrofit2.Callback;

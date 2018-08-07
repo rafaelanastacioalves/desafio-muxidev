@@ -2,7 +2,6 @@ package com.example.rafaelanastacioalves.moby.repository;
 
 import com.example.rafaelanastacioalves.moby.vo.Fruits;
 
-import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.POST;
 

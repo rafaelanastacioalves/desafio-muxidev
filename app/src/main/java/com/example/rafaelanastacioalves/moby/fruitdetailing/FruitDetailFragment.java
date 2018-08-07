@@ -1,4 +1,4 @@
-package com.example.rafaelanastacioalves.moby.entitydetailing;
+package com.example.rafaelanastacioalves.moby.fruitdetailing;
 
 
 import android.arch.lifecycle.Observer;
@@ -26,24 +26,21 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EntityDetailsFragment extends Fragment implements View.OnClickListener {
+public class FruitDetailFragment extends Fragment implements View.OnClickListener {
 
     public static final String ARG_FRUIT_OBJECT = "fruit_object";
-
-    private LiveDataEntityDetailsViewModel mLiveDataEntityDetailsViewModel;
-
     @BindView(R.id.fruit_original_price_text_view)
     TextView fruitOriginalPriceTextView;
     @BindView(R.id.fruit_converted_price_text_view)
     TextView fruitConvertedPriceTextView;
     @BindView(R.id.fruit_name_text_view)
     TextView fruitNameTextView;
-
     @BindView(R.id.trip_package_detail_imageview)
     ImageView tripPackageDetailImageview;
+    private LiveDataEntityDetailsViewModel mLiveDataEntityDetailsViewModel;
 
 
-    public EntityDetailsFragment() {
+    public FruitDetailFragment() {
         // Required empty public constructor
     }
 
@@ -119,8 +116,6 @@ public class EntityDetailsFragment extends Fragment implements View.OnClickListe
 
                     }
                 });
-
-
     }
 
 

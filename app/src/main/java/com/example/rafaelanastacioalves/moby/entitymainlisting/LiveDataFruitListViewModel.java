@@ -3,8 +3,8 @@ package com.example.rafaelanastacioalves.moby.entitymainlisting;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.example.rafaelanastacioalves.moby.vo.Fruit;
 import com.example.rafaelanastacioalves.moby.repository.AppRepository;
+import com.example.rafaelanastacioalves.moby.vo.Fruit;
 import com.example.rafaelanastacioalves.moby.vo.Fruits;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
-public class LiveDataMainEntityListViewModel extends ViewModel {
+public class LiveDataFruitListViewModel extends ViewModel {
 
     private MutableLiveData<List<Fruit>> mMainEntityList = new MutableLiveData<>();
 
@@ -24,7 +24,7 @@ public class LiveDataMainEntityListViewModel extends ViewModel {
 
 
     public void loadData() {
-        Timber.i("LiveDataMainEntityListViewModel loadData");
+        Timber.i("LiveDataFruitListViewModel loadData");
 
         if (mMainEntityList.getValue() != null) {
             return;

@@ -3,11 +3,10 @@ package com.example.rafaelanastacioalves.moby;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.test.InstrumentationRegistry;
-import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.example.rafaelanastacioalves.moby.entitymainlisting.MainActivity;
+import com.example.rafaelanastacioalves.moby.entitymainlisting.FruitListActivity;
 import com.example.rafaelanastacioalves.moby.util.RestServiceTestHelper;
 
 import org.hamcrest.CoreMatchers;
@@ -32,10 +31,10 @@ import static org.hamcrest.core.AllOf.allOf;
 
 
 @RunWith(AndroidJUnit4.class)
-public class MainActivityTest {
+public class FruitListActivityTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class, true, false);
+    public ActivityTestRule<FruitListActivity> mainActivityActivityTestRule = new ActivityTestRule<FruitListActivity>(FruitListActivity.class, true, false);
     private String fileNameFruitListOKResponse = "fruit_list_ok_response.json";
     private MockWebServer server;
 

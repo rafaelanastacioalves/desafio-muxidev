@@ -8,8 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.rafaelanastacioalves.moby.R;
-import com.example.rafaelanastacioalves.moby.vo.Fruit;
 import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener;
+import com.example.rafaelanastacioalves.moby.vo.Fruit;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -18,11 +18,15 @@ import butterknife.ButterKnife;
 public class FruitViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-    @BindView(R.id.fruit_name_container) View tripPackageContainer;
+    @BindView(R.id.fruit_name_container)
+    View tripPackageContainer;
+    @BindView(R.id.fruit_imageview)
+    ImageView fruitImageView;
+    @BindView(R.id.fruit_name_text_view)
+    TextView fruitNameTextView;
+    @BindView(R.id.fruit_price)
+    TextView fruitPrice;
     private RecyclerViewClickListener aRecyclerViewListener;
-    @BindView(R.id.fruit_imageview) ImageView fruitImageView;
-    @BindView(R.id.fruit_name_text_view) TextView fruitNameTextView;
-    @BindView(R.id.fruit_price) TextView fruitPrice;
 
 
     public FruitViewHolder(View itemView, RecyclerViewClickListener clickListener) {
