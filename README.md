@@ -1,14 +1,14 @@
-# TITULO
+# Desafio Muxi Mobile
 
 ## Descrição Geral
 
-Desafio tecnico da empresa MuxiDev.
+Desafio tecnico da empresa Muxi.
 
 ![tela de listagem](captures/Screenshot_1533621400.png)
 
 ![tela de detalhes](captures/Screenshot_1533621405.png)
 
-## Descrição técnica
+## Descrição Técnica
 
 ### Resumo
 Na solução para este app, propus a utilização de RxJava, em conjunto com a proposta do Android Architecture Components (AAC), recomendada pelo Google.
