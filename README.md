@@ -4,9 +4,9 @@
 
 Desafio tecnico da empresa MuxiDev.
 
-![tela de listagem](captures/)
+![tela de listagem](captures/Screenshot_1533621400.png)
 
-![tela de detalhes](captures/)
+![tela de detalhes](captures/Screenshot_1533621405.png)
 
 ## Descrição técnica
 
