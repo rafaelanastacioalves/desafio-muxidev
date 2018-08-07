@@ -34,7 +34,7 @@ import static org.hamcrest.CoreMatchers.allOf;
 public class FruitDetailActivityTest {
     @Rule
     public ActivityTestRule<EntityDetailActivity> tripPackageDetailActivityTestRule = new ActivityTestRule<EntityDetailActivity>(EntityDetailActivity.class, true, false);
-    private String fileNameTripPackageDetailOKResponse = "package_detail_ok_response.json";
+    private String fruitListOkResponse = "fruit_list_ok_response.json";
     private MockWebServer server;
     private String MOCK_PACKAGE_ID = "01";
 
@@ -53,7 +53,7 @@ public class FruitDetailActivityTest {
                 .setResponseCode(200)
                 .setBody(RestServiceTestHelper.getStringFromFile(
                         InstrumentationRegistry.getInstrumentation().getContext()
-                        , fileNameTripPackageDetailOKResponse)
+                        , fruitListOkResponse)
                 )
         );
 
@@ -66,8 +66,8 @@ public class FruitDetailActivityTest {
 
         tripPackageDetailActivityTestRule.launchActivity(intent);
         onView(allOf(withId(R.id.fruit_name_text_view), withText("Apple"))).check(matches(isDisplayed()));
-        onView(allOf(withId(R.id.fruit_price), withText("35"))).check(matches(isDisplayed()));
-        onView(allOf(withId(R.id.fruit_converted_price_text_view), withText("70"))).check(matches(isDisplayed()));
+        onView(allOf(withId(R.id.fruit_original_price_text_view), withText("35.0"))).check(matches(isDisplayed()));
+        onView(allOf(withId(R.id.fruit_converted_price_text_view), withText("70.0"))).check(matches(isDisplayed()));
 
     }
 
