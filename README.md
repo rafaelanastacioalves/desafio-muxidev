@@ -1,8 +1,6 @@
-# Desafio Muxi Mobile
-
 ## Descrição Geral
 
-Desafio tecnico da empresa Muxi.
+Desafio técnico da empresa Muxi.
 
 ![tela de listagem](captures/Screenshot_1533621400.png)
 
@@ -49,4 +47,4 @@ Adicionamos duas classes de testes com um método simples para cada.
 Para iniciar os testes:
 -  Conecte um device ou abra um emulador;
 -  No terminal, no diretório do projeto, execute: `chmod 777 ./gradlew`
--  Execute o comando no terminarl: `./gradlew connectedAndroidTest`
+-  Execute o comando no terminal: `./gradlew connectedAndroidTest`
