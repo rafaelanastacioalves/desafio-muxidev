@@ -9,6 +9,7 @@ import android.support.test.runner.AndroidJUnit4;
 import com.example.rafaelanastacioalves.moby.entitydetailing.EntityDetailsFragment;
 import com.example.rafaelanastacioalves.moby.entitydetailing.EntityDetailActivity;
 import com.example.rafaelanastacioalves.moby.util.RestServiceTestHelper;
+import com.example.rafaelanastacioalves.moby.vo.Fruit;
 
 import org.junit.After;
 import org.junit.Before;
@@ -57,12 +58,16 @@ public class FruitDetailActivityTest {
         );
 
         Intent intent = new Intent();
-        intent.putExtra(EntityDetailsFragment.ARG_ORIGINAL_VALUE, MOCK_PACKAGE_ID);
+        Fruit fruit = new Fruit();
+        fruit.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/265px-Red_Apple.jpg");
+        fruit.setName("Apple");
+        fruit.setPrice(35);
+        intent.putExtra(EntityDetailsFragment.ARG_FRUIT_OBJECT, fruit);
+
         tripPackageDetailActivityTestRule.launchActivity(intent);
-
-
-
-        onView(allOf(withId(R.id.detail_entity_detail_name), withText("5000,00"))).check(matches(isDisplayed()));
+        onView(allOf(withId(R.id.fruit_name_text_view), withText("Apple"))).check(matches(isDisplayed()));
+        onView(allOf(withId(R.id.fruit_price), withText("35"))).check(matches(isDisplayed()));
+        onView(allOf(withId(R.id.fruit_converted_price_text_view), withText("70"))).check(matches(isDisplayed()));
 
     }
 

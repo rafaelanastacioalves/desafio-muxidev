@@ -33,4 +33,16 @@ public class Fruit implements Serializable {
     public void setConvertedPrice(float convertedPrice) {
         this.convertedPrice = convertedPrice;
     }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

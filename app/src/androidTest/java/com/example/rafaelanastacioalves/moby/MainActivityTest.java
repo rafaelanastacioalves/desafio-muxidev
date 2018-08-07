@@ -10,6 +10,7 @@ import android.support.test.runner.AndroidJUnit4;
 import com.example.rafaelanastacioalves.moby.entitymainlisting.MainActivity;
 import com.example.rafaelanastacioalves.moby.util.RestServiceTestHelper;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -64,7 +65,8 @@ public class MainActivityTest {
 
         mainActivityActivityTestRule.launchActivity(intent);
 
-        onView(allOf(withId(R.id.fruit_name_text_view), withText("Apple"))).check(matches(isDisplayed()));
+        onView(CoreMatchers.allOf(withId(R.id.fruit_name_text_view), withText("Apple"))).check(matches(isDisplayed()));
+        onView(CoreMatchers.allOf(withId(R.id.fruit_price), withText("35.0"))).check(matches(isDisplayed()));
 
     }
 
